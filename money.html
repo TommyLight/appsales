@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查看昨日趋势❤️</title>
+</head>
+
+<body>
+    <script>
+        let date = new Date();
+        let noon = new Date().setHours(1,0,0,0);
+        if (date < noon) {
+            date.setTime(date.getTime()-48*60*60*1000)
+        } else {
+            date.setTime(date.getTime()-24*60*60*1000)
+        }
+        
+        let year = date.getFullYear();
+        let month = (date.getMonth() + 1).toString().padStart(2, "0");
+        let day = (date.getDate()).toString().padStart(2, "0");
+        let time = year + "-" + month + "-" + day
+        console.log(time);
+        window.location.href = "https://appstoreconnect.apple.com/trends/sales?measure=Royalty_utc&period=day&interval=day&endDate=" + time + "&startDate=" + time
+    </script>
+</body>
+
+</html>
